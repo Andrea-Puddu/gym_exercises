@@ -8,12 +8,24 @@ import Exercises from '../components/Exercises';
 const Home = () => {
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <Box>
       <HeroBanner />
-      <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-      <Exercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+      <SearchExercises
+        setExercises={setExercises}
+        bodyPart={bodyPart}
+        setBodyPart={setBodyPart}
+        setCurrentPage={setCurrentPage}
+      />
+      <Exercises
+        exercises={exercises}
+        setExercises={setExercises}
+        bodyPart={bodyPart}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </Box>
   );
 };
