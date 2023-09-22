@@ -47,12 +47,11 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart, setCurrentPage}) 
       setSearch('');
       setExercises(searchedExercises);
       window.scrollTo({top: 1800, left: 100, behavior: 'smooth'});
-
     }
   };
 
   return (
-    <Stack alignItems='center' justifyContent='center' mt='37px' p='20px'>
+    <Stack id='search-exercises' alignItems='center' justifyContent='center' mt='37px' p='20px'>
       <Typography
         fontWeight={700}
         mb='50px'
@@ -102,6 +101,7 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart, setCurrentPage}) 
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
           setCurrentPage={setCurrentPage}
+          isBodyParts
         />
       </Box>
     </Stack>

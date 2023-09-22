@@ -1,4 +1,4 @@
-import {Stack, Box, Typography, Button} from '@mui/material';
+import {Box, Typography, Button} from '@mui/material';
 
 import HeroBannerImmage from '../assets/images/banner.png';
 
@@ -17,7 +17,7 @@ const HeroBanner = () => {
       <Button
         variant='contained'
         color='error'
-        href='/exercises'
+        href='#search-exercises'
         sx={{backgroundColor: '#ff2625', p: '10px'}}
       >
         Explore Exercises

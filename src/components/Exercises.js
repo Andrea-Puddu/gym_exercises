@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import Pagination from '@mui/material/Pagination';
 import {Stack, Box, Typography} from '@mui/material';
 
@@ -42,16 +42,11 @@ const Exercises = ({exercises, setExercises, bodyPart, currentPage, setCurrentPa
 
   return (
     <Box id='exercises' p='20px' mt='50px' sx={{mt: {lg: '110px'}}}>
-      <Typography variant='h3' mb='46px'>
+      <Typography variant='h3' mb='46px' textAlign='center'>
         Showing Results
       </Typography>
 
-      <Stack
-        direction='row'
-        flexWrap='wrap'
-        justifyContent='center'
-        sx={{gap: {xs: '50', lg: '110px'}}}
-      >
+      <Stack direction='row' flexWrap='wrap' justifyContent='center' gap='40px'>
         {currentExercises.map((exercise, index) => (
           <ExerciseCard key={index} exercise={exercise} />
         ))}
@@ -61,7 +56,7 @@ const Exercises = ({exercises, setExercises, bodyPart, currentPage, setCurrentPa
         {exercises.length > 9 && (
           <Pagination
             shape='rounded'
-            size='large'
+            size='medium'
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}

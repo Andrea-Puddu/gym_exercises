@@ -21,7 +21,10 @@ const Detail = ({exerciseDetail: {name, bodyPart, gifUrl, equipment, target}}) =
   ];
 
   return (
-    <Stack gap='60px' sx={{flexDirection: {lg: 'row'}, p: '20px', alignItems: 'center'}}>
+    <Stack
+      gap='60px'
+      sx={{flexDirection: {lg: 'row'}, mt: '20px', p: '20px', alignItems: 'center'}}
+    >
       <img src={gifUrl} alt={name} loading='lazy' className='detail-image' />
       <Stack sx={{gap: {lg: '35px', xs: '20px'}}}>
         <Typography
