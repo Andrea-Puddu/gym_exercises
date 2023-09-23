@@ -21,8 +21,6 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart, setCurrentPage}) 
     fetchExercisesData();
   }, []);
 
-  // console.log(bodyParts);
-
   const handleSearch = async () => {
     if (search) {
       // data = [{}, {}, {}, {}, {}]

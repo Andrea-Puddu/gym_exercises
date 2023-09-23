@@ -15,7 +15,9 @@ const ExerciseDetail = () => {
   const {id} = useParams();
 
   useEffect(() => {
-    const fetchExercisesDetail = async () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
+    const fetchExercisesData = async () => {
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
 
@@ -26,31 +28,34 @@ const ExerciseDetail = () => {
       setExerciseDetail(exerciseDetailData);
 
       const exerciseVideosData = await fetchData(
-        `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
+        `${youtubeSearchUrl}/search?query=${exerciseDetailData?.name} exercise`,
         youtubeOptions
       );
       setExerciseVideos(exerciseVideosData?.contents);
+      console.log(exerciseVideosData?.contents);
 
       const targetMuscleExercisesData = await fetchData(
-        `${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`,
+        `${exerciseDbUrl}/exercises/target/${exerciseDetailData?.target}`,
         exerciseOptions
       );
       setTargetMuscleExercises(targetMuscleExercisesData);
 
-      const equipmentExercisesData = await fetchData(
-        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`,
+      const equimentExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData?.equipment}`,
         exerciseOptions
       );
-      setEquipmentExercises(equipmentExercisesData);
+      setEquipmentExercises(equimentExercisesData);
     };
 
-    fetchExercisesDetail();
+    fetchExercisesData();
   }, [id]);
+
+  if (!exerciseDetail) return <div>No Data</div>;
 
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
+      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail?.name} />
       <SimiliarExercises
         targetMuscleExercises={targetMuscleExercises}
         equipmentExercises={equipmentExercises}
